@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: fifth-node-app
-          image: ghcr.io/bomb0069/fifth-node-backstage-app:latest
+          image: ghcr.io/bomb0069/fifth-node-backstage-app:fd5b763c59014158916635d437af5d3c0e7fefd6
           ports:
             - containerPort: 3000
           env:
