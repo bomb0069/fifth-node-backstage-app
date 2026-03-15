@@ -1,0 +1,12 @@
+{
+  "name": "fifth-node-app",
+  "version": "1.0.0",
+  "description": "first test nodejs application with gitops",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

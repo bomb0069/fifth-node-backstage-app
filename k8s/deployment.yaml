@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fifth-node-app
+  namespace: fifth-node-app
+  labels:
+    app: fifth-node-app
+    backstage.io/kubernetes-id: fifth-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fifth-node-app
+  template:
+    metadata:
+      labels:
+        app: fifth-node-app
+        backstage.io/kubernetes-id: fifth-node-app
+    spec:
+      containers:
+        - name: fifth-node-app
+          image: ghcr.io/bomb0069/fifth-node-backstage-app:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: '3000'
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 30
